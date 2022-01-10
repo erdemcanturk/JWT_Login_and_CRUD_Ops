@@ -1,5 +1,6 @@
 ## Koctas Backend Task
 
+Database PostgreSQL ile olusturuldu.
 
 ## Sign up ve Sign in
 endpointlere request atabilmek icin oncelikle signup urisi ile Bearer Token"i almamiz gerekiyor. aksi taktirde "forbidden" response`u donecektir.
