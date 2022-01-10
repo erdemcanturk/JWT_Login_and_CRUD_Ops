@@ -14,15 +14,13 @@ import java.util.concurrent.TimeUnit;
 
 
 @Configuration
-public class RetrofitConfiguration
-{
+public class RetrofitConfiguration {
     @Value("${retrofit.timeout}")
     private Long TIMEOUT_IN_SECS;
 
     @Bean
     public OkHttpClient secureKeyClient(@Value("${service.security.secure-key-username}") String secureKeyUsername,
-                                        @Value("${service.security.secure-key-password}") String secureKeyPassword)
-    {
+                                        @Value("${service.security.secure-key-password}") String secureKeyPassword) {
         return createDefaultClientBuilder()
                 .addInterceptor(interceptor -> interceptor.proceed(interceptor.request().newBuilder()
                         .header("Authorization", Credentials.basic(secureKeyUsername, secureKeyPassword))
@@ -31,21 +29,20 @@ public class RetrofitConfiguration
     }
 
     @Bean
-    public Retrofit.Builder secureKeyBuilder(OkHttpClient secureKeyClient, Gson gson)
-    {
+    public Retrofit.Builder secureKeyBuilder(OkHttpClient secureKeyClient, Gson gson) {
         return new Retrofit.Builder()
                 .client(secureKeyClient)
                 .addConverterFactory(GsonConverterFactory.create(gson));
     }
 
-    private OkHttpClient.Builder createDefaultClientBuilder()
-    {
+    private OkHttpClient.Builder createDefaultClientBuilder() {
         return new OkHttpClient.Builder()
                 .connectTimeout(TIMEOUT_IN_SECS, TimeUnit.SECONDS)
                 .readTimeout(TIMEOUT_IN_SECS, TimeUnit.SECONDS)
                 .writeTimeout(TIMEOUT_IN_SECS, TimeUnit.SECONDS);
     }
-         @Bean
+
+    @Bean
     public ICustomerServiceRequest customerServiceRequest(Retrofit.Builder secureKeyBuilder,
                                                           @Value("http:/localhost:5858/") String baseUrl) {
         return secureKeyBuilder.baseUrl(baseUrl)

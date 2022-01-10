@@ -18,5 +18,5 @@ public interface ICustomerServiceRequest {
     Call<List<JsonElement>> findAllCustomer();
 
     @PUT("/api/customers/{id}")
-    Call<List<JsonElement>>updateCustomer();
+    Call<List<JsonElement>> updateCustomer();
 }

@@ -8,9 +8,8 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "users")//user is a reserved word and it's usually not a good idea use reserved words for identifiers
-public class User
-{
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

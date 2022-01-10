@@ -14,6 +14,4 @@ public interface ICustomerRepository extends JpaRepository<Customer, Long> {
     List<Customer> findAllById(Long id);
 
 
-
-
 }

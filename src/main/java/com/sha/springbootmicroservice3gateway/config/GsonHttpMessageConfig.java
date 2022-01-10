@@ -11,29 +11,25 @@ import java.time.format.DateTimeFormatter;
 
 
 @Configuration
-public class GsonHttpMessageConfig
-{
+public class GsonHttpMessageConfig {
     @Bean
-    public GsonBuilder gsonBuilder()
-    {
+    public GsonBuilder gsonBuilder() {
         return new GsonBuilder()
                 .registerTypeAdapter(LocalDateTime.class,
                         (JsonSerializer<LocalDateTime>) (date, type, context) ->
-                        date == null ? null : new JsonPrimitive(date.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)))
+                                date == null ? null : new JsonPrimitive(date.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)))
                 .registerTypeAdapter(LocalDateTime.class,
                         (JsonDeserializer<LocalDateTime>) (json, type, context) ->
-                        LocalDateTime.parse(json.getAsString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+                                LocalDateTime.parse(json.getAsString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME));
     }
 
     @Bean
-    public Gson gson(GsonBuilder gsonBuilder)
-    {
+    public Gson gson(GsonBuilder gsonBuilder) {
         return gsonBuilder.create();
     }
 
     @Bean
-    public GsonHttpMessageConverter gsonHttpMessageConverter(Gson gson)
-    {
+    public GsonHttpMessageConverter gsonHttpMessageConverter(Gson gson) {
         GsonHttpMessageConverter converter = new GsonHttpMessageConverter();
         converter.setGson(gson);
         return converter;

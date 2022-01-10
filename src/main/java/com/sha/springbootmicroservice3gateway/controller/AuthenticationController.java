@@ -17,8 +17,8 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("api/authentication")//pre-path
-public class AuthenticationController
-{  private static Logger logger = Logger.getLogger((AuthenticationController.class).getName());
+public class AuthenticationController {
+    private static Logger logger = Logger.getLogger((AuthenticationController.class).getName());
     @Autowired
     private IAuthenticationService authenticationService;
 
@@ -26,18 +26,17 @@ public class AuthenticationController
     private IUserService userService;
 
     @PostMapping("sign-up") //api/authentication/sign-up
-    public ResponseEntity<?> signUp(@RequestBody User user)
-    {
-        if (userService.findBUsername(user.getUsername()).isPresent())
-        {   logger.log(Level.INFO, "Ayni kullanici kayitli, yeni token icin farkli username secin");
+    public ResponseEntity<?> signUp(@RequestBody User user) {
+        if (userService.findBUsername(user.getUsername()).isPresent()) {
+            logger.log(Level.INFO, "Ayni kullanici kayitli, yeni token icin farkli username secin");
             return new ResponseEntity<>(HttpStatus.CONFLICT);
-        }  logger.log(Level.INFO, "Sign-up basarili");
+        }
+        logger.log(Level.INFO, "Sign-up basarili");
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
 
     @PostMapping("sign-in")//api/authentication/sign-in
-    public ResponseEntity<?> signIn(@RequestBody User user)
-    {
+    public ResponseEntity<?> signIn(@RequestBody User user) {
         logger.log(Level.INFO, "Sign-in basarili");
         return new ResponseEntity<>(authenticationService.signInAndReturnJWT(user), HttpStatus.OK);
     }

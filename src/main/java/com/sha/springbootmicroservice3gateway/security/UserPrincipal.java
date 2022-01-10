@@ -16,6 +16,8 @@ import java.util.Collections;
 @AllArgsConstructor
 public class UserPrincipal implements UserDetails
 {
+
+    //Burada kullanici adina gore Authentication islemlerini yapilandiriyoruz
     private Long id;
     private String username;
     transient private String password; //  transient yapma sebebimiz serialize olan yerlerde gorunmemesi icin
