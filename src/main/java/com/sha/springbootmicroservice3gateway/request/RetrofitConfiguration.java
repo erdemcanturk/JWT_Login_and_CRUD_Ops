@@ -52,23 +52,5 @@ public class RetrofitConfiguration
                 .build().create(ICustomerServiceRequest.class);
     }
 
-    @Bean
-    public IProductServiceRequest productServiceRequest(Retrofit.Builder secureKeyBuilder,
-                                                        @Value("${product.service.url}") String baseUrl)
-    {
-        return secureKeyBuilder
-                .baseUrl(baseUrl)
-                .build()
-                .create(IProductServiceRequest.class);
-    }
 
-    @Bean
-    public ITransactionServiceRequest transactionServiceRequest(Retrofit.Builder secureKeyBuilder,
-                                                                @Value("${transaction.service.url}") String baseUrl)
-    {
-        return secureKeyBuilder
-                .baseUrl(baseUrl)
-                .build()
-                .create(ITransactionServiceRequest.class);
-    }
 }

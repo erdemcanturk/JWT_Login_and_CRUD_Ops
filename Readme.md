@@ -49,6 +49,9 @@ sekilde olacaktir.
 `"eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJlcmRlbSIsInVzZXJJZCI6Mywicm9sZXMiOiJVU0VSIiwiZXhwIjoxNjQxODYyMDQ1fQ.RIkABnxDQZswYGI7lzcyjXc4bKf0tcGHCC4OyIkJFDgwQ9HlVivEKDazK7ePAbWv3Y4brD5SYrR5BObkxUGd0dSpnVdVRvIMNBmBWK2QCRPjr_TMwmyTtJOINoyhmS18T1WkvFu38Ze9__ygJsNyzm3B5_Bf_MmAVmLiRScAPzxnPB9zWLNMYQJHBorvE0BlMkXAHO21ZAyrC77dh-A7CPZaaKtde2aWHEKKldRsndKBnOI5IRYQk10j3EproTSH8M98tKVom6pjC3IzrN2218-QdnyJskhbz458m_xyyF_bVXZD4mEmZL1_IlHo2JlwikacJzxxFVwAihih3t2I8A"`
 
 
+### Ilk basta PUT yapmadan Musteri Listeleme icin SpringBootApplication classinda 2 adet ornek musteri olusturdum.
+Uygulama her ayaga kalktiginda bu 2 musteri tabloya insert olacaktir bu yuzden surekli responseda gorunecektir.
+
 ## Endpoints
 
 #### List Users

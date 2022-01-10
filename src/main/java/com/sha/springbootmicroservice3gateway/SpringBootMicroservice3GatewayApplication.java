@@ -26,7 +26,7 @@ public class SpringBootMicroservice3GatewayApplication implements CommandLineRun
 
 	@Override
 	public void run(String... args) throws Exception {
-	//get requestinde gorebilmek icin burada musteri olusturdum.
+	//get requestinde gorebilmek icin burada default musteri olusturdum.
 	Customer customer1 = new Customer();
 		customer1.setFirstName("erdem");
 		customer1.setLastName("canturk");
@@ -46,4 +46,6 @@ public class SpringBootMicroservice3GatewayApplication implements CommandLineRun
 		customerRepository.save(customer2);
 
 
-} }
+}
+
+}

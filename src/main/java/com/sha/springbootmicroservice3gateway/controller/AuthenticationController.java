@@ -29,7 +29,7 @@ public class AuthenticationController
     public ResponseEntity<?> signUp(@RequestBody User user)
     {
         if (userService.findBUsername(user.getUsername()).isPresent())
-        {
+        {   logger.log(Level.INFO, "Ayni kullanici kayitli, yeni token icin farkli username secin");
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }  logger.log(Level.INFO, "Sign-up basarili");
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
