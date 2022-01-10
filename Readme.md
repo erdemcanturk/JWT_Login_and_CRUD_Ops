@@ -1,11 +1,11 @@
-## Koctas Backend Task
+## JWT auth ile Login ve Crud islemleri
 
 
 ## Sign up ve Sign in
 endpointlere request atabilmek icin oncelikle signup urisi ile Bearer Token"i almamiz gerekiyor. aksi taktirde
 "forbidden" response`u donecektir.
 
-Burada RSA encryption tool ile 1024 bitlik bir public ve private key aldigimiz keyleri Jason Web Token ile
+Burada RSA encryption tool ile 1024 bitlik bir public ve private key aldigim keyler Json Web Token ile
 auth islemleri gerceklestiriyor. Spring Security HTTP filtrelemesini authentication icin kullandim.
 Bu filtreleme AuthenticationManager ile dogrulama yoneticisine gonderir. her kullanicinin ismi , sifresi dogru mu
 ya da token suresi doldu mu diye kontrol eder. Kimlik dogrulamasindan sonra JWT ile yetki alinir. 
@@ -47,7 +47,7 @@ Content-Length: 84
 
 Sign-up isleminden sonra 
 ``localhost:5555/api/authentication/sign-in`` endpointi ile sign in islemi yapilir gelen cevap daha sonra Customer
-Controller`inde bulunan enpointler icin kullanilacak olan "Bearer token" i olacaktir. ornek olarak donen response su 
+Controller`inde bulunan enpointler icin kullanilacak olan "Bearer token" i olacaktir. Ornek olarak donen response su 
 sekilde olacaktir.
 
 
@@ -108,7 +108,7 @@ Content-Length: 162
 
 PUT localhost:5555/api/v1/customers/{id}
 
-```aidl
+```
 PUT /api/v1/customers/4 HTTP/1.1
 Host: localhost:5555
 Authorization: Basic c2VjdXJlS2V5VXNlcm5hbWUhOnNlY3VyZUtleVBhc3N3b3JkIQ==
