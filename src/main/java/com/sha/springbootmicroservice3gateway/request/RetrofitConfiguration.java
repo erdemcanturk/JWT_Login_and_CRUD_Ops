@@ -1,6 +1,7 @@
 package com.sha.springbootmicroservice3gateway.request;
 
 import com.google.gson.Gson;
+import com.sha.springbootmicroservice3gateway.service.ICustomerService;
 import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
 import org.springframework.beans.factory.annotation.Value;
@@ -43,6 +44,12 @@ public class RetrofitConfiguration
                 .connectTimeout(TIMEOUT_IN_SECS, TimeUnit.SECONDS)
                 .readTimeout(TIMEOUT_IN_SECS, TimeUnit.SECONDS)
                 .writeTimeout(TIMEOUT_IN_SECS, TimeUnit.SECONDS);
+    }
+         @Bean
+    public ICustomerServiceRequest customerServiceRequest(Retrofit.Builder secureKeyBuilder,
+                                                          @Value("http:/localhost:5858/") String baseUrl) {
+        return secureKeyBuilder.baseUrl(baseUrl)
+                .build().create(ICustomerServiceRequest.class);
     }
 
     @Bean

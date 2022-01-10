@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RestController
-@RequestMapping("api/v1/customers") // pre-path`imiz
+@RequestMapping("gateway/customers") // pre-path`imiz
 public class CustomerController {
 
     private static Logger logger = Logger.getLogger((CustomerController.class).getName());

@@ -19,7 +19,7 @@ public class RetrofitUtils
 
             if (!response.isSuccessful())
             {
-                log.error("Request completed unsuccessfully with statusCode:{} and reason:{}",
+                log.error("Request basarisiz bitti statusCode:{} and reason:{}",
                         response.code(), response.errorBody().string());
             }
             return response.body();

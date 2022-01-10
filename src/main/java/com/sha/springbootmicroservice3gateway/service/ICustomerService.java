@@ -1,6 +1,7 @@
 package com.sha.springbootmicroservice3gateway.service;
 
 
+import com.google.gson.JsonElement;
 import com.sha.springbootmicroservice3gateway.model.Customer;
 
 import java.util.List;
@@ -15,7 +16,9 @@ public interface ICustomerService  {
     void deleteCustomer(Long id);
 
 
-    List<Customer> findAllCustomer(Long id);
+   // List<Customer> findAllCustomer(Long id);
+
+    List<JsonElement> findAllCustomer();
 
     Optional<Customer> findById(Long id);
 }
