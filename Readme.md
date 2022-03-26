@@ -1,4 +1,4 @@
-## Koctas Backend Task
+
 
 Database PostgreSQL ile olusturuldu.
 
